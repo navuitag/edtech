@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Trung tâm học tập EdTech — Toán, Sinh, Hóa, Lý, Văn, Tin, Anh">
     <meta name="theme-color" content="#20a36b">
-    <title>EdTech Hub — Chọn môn học</title>
+    <title>EdTech Hub — Ứng dụng hỗ trợ học tập</title>
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
     <link rel="apple-touch-icon" href="icons/icon-192.png">
@@ -296,6 +296,58 @@
         text-decoration: underline;
       }
 
+      .hub-feedback {
+        margin-top: 18px;
+        max-width: 520px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+      }
+
+      .hub-feedback label { display: grid; gap: 6px; margin-bottom: 12px; }
+      .hub-feedback label span { color: var(--muted); font-size: 13px; font-weight: 700; }
+      .hub-feedback select, .hub-feedback textarea {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        font: inherit;
+        padding: 10px 12px;
+        width: 100%;
+      }
+      .hub-feedback textarea { min-height: 100px; resize: vertical; }
+      .hub-feedback-submit {
+        background: var(--green);
+        border: none;
+        border-radius: 999px;
+        color: #fff;
+        cursor: pointer;
+        font: inherit;
+        font-weight: 700;
+        padding: 10px 18px;
+      }
+
+      .hub-zalo-qr {
+        margin: 18px auto 0;
+        max-width: 220px;
+      }
+
+      .hub-zalo-qr img {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(25, 63, 101, 0.1);
+        display: block;
+        height: auto;
+        margin: 0 auto;
+        width: 200px;
+      }
+
+      .hub-zalo-qr figcaption {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+        margin-top: 8px;
+      }
+
       @media (max-width: 640px) {
         .page { padding-top: 20px; }
         .hero h1 { max-width: none; }
@@ -340,6 +392,26 @@
           <a href="mailto:navuitag@gmail.com">navuitag@gmail.com</a>
           <a href="tel:+84986201079">0986201079</a>
         </div>
+        <figure class="hub-zalo-qr" aria-label="Mã QR Zalo kết bạn">
+          <img src="My-QR-Zalo.jpg" width="200" height="224" alt="Quét mã QR để kết bạn Zalo với Nguyễn Anh Vũ" loading="lazy" decoding="async">
+          <figcaption>Kết bạn Zalo</figcaption>
+        </figure>
+        <form class="hub-feedback" id="hubFeedbackForm">
+          <label>
+            <span>Loại góp ý</span>
+            <select name="category">
+              <option>Góp ý chung</option>
+              <option>Báo lỗi</option>
+              <option>Đề xuất tính năng</option>
+              <option>Nội dung / bài học</option>
+            </select>
+          </label>
+          <label>
+            <span>Nội dung góp ý</span>
+            <textarea name="message" rows="4" maxlength="2000" placeholder="Mô tả góp ý hoặc đề xuất của bạn..." required></textarea>
+          </label>
+          <button class="hub-feedback-submit" type="submit">Gửi</button>
+        </form>
       </footer>
     </div>
     <script>
@@ -369,6 +441,20 @@
           <span>${app.name}</span>
         </a>
       `).join("");
+
+      document.getElementById("hubFeedbackForm").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const data = new FormData(event.currentTarget);
+        const message = String(data.get("message") || "").trim();
+        const category = String(data.get("category") || "Góp ý chung");
+        if (!message) return;
+        const subject = encodeURIComponent(`[EdTech Hub] ${category}`);
+        const body = encodeURIComponent(
+          `Ứng dụng: EdTech Hub\nLoại góp ý: ${category}\nTrang: ${location.href}\nThiết bị: ${navigator.userAgent}\n\n---\nNội dung góp ý:\n${message}\n`
+        );
+        window.location.href = `mailto:navuitag@gmail.com?subject=${subject}&body=${body}`;
+        event.currentTarget.reset();
+      });
     </script>
   </body>
 </html>
