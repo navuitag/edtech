@@ -167,3 +167,11 @@ node scripts/patch-edtech-hub.mjs
 ## Giấy phép & liên hệ
 
 Mỗi dự án con có thể có giấy phép riêng. Mã nguồn được host tại tổ chức GitHub [navuitag](https://github.com/navuitag).
+
+---
+
+## Tác giả
+
+- **Nguyễn Anh Vũ**
+- Email: [navuitag@gmail.com](mailto:navuitag@gmail.com)
+- Điện thoại: [0986201079](tel:+84986201079)
