@@ -1,5 +1,9 @@
 # EdTech Hub
 
+<p align="center">
+  <img src="icons/logo.svg" alt="EdTech Hub" width="360">
+</p>
+
 Monorepo làm việc cho bộ ứng dụng học tập PWA dành cho học sinh Việt Nam. Mỗi môn học là một ứng dụng web độc lập (HTML/CSS/JavaScript), chạy offline, lưu tiến độ trên thiết bị và hỗ trợ **nhiều người học** trên cùng máy.
 
 Repo gốc này (`edtech`) chứa **trang hub** để chọn môn học. Các dự án con nằm trong thư mục con, mỗi dự án có git repository riêng.

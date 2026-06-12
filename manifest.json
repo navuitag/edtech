@@ -1,0 +1,24 @@
+{
+  "name": "EdTech Hub",
+  "short_name": "EdTech",
+  "description": "Trung tâm học tập — Toán, Sinh, Hóa, Lý, Văn, Tin, Anh",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f4f9fc",
+  "theme_color": "#20a36b",
+  "lang": "vi",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

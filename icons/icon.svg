@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="EdTech Hub">
+  <defs>
+    <linearGradient id="hub-bg" x1="64" y1="48" x2="448" y2="464" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#24b878"/>
+      <stop offset="1" stop-color="#178a58"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#hub-bg)"/>
+  <g fill="none" stroke="white" stroke-linecap="round">
+    <circle cx="256" cy="256" r="46" fill="white" stroke="none"/>
+    <g stroke-width="10" opacity="0.9">
+      <line x1="256" y1="210" x2="256" y2="118"/>
+      <line x1="289" y1="223" x2="354" y2="158"/>
+      <line x1="302" y1="256" x2="394" y2="256"/>
+      <line x1="289" y1="289" x2="354" y2="354"/>
+      <line x1="256" y1="302" x2="256" y2="394"/>
+      <line x1="223" y1="289" x2="158" y2="354"/>
+      <line x1="210" y1="256" x2="118" y2="256"/>
+      <line x1="223" y1="223" x2="158" y2="158"/>
+    </g>
+    <g fill="white" stroke="none">
+      <circle cx="256" cy="102" r="24"/>
+      <circle cx="366" cy="146" r="24"/>
+      <circle cx="410" cy="256" r="24"/>
+      <circle cx="366" cy="366" r="24"/>
+      <circle cx="256" cy="410" r="24"/>
+      <circle cx="146" cy="366" r="24"/>
+      <circle cx="102" cy="256" r="24"/>
+      <circle cx="146" cy="146" r="24"/>
+    </g>
+  </g>
+  <text x="256" y="282" font-family="system-ui, -apple-system, 'Plus Jakarta Sans', sans-serif" font-size="92" font-weight="800" fill="#178a58" text-anchor="middle">E</text>
+</svg>

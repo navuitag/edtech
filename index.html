@@ -8,6 +8,9 @@
     <meta name="description" content="Trung tâm học tập EdTech — Toán, Sinh, Hóa, Lý, Văn, Tin, Anh">
     <meta name="theme-color" content="#20a36b">
     <title>EdTech Hub — Chọn môn học</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -52,17 +55,18 @@
       }
 
       .brand-mark {
-        align-items: center;
-        background: linear-gradient(135deg, var(--green), var(--green-dark));
         border-radius: 12px;
         box-shadow: 0 8px 20px rgba(32, 163, 107, 0.28);
-        color: #fff;
-        display: inline-flex;
-        font-size: 18px;
-        font-weight: 800;
+        flex: 0 0 auto;
         height: 44px;
-        justify-content: center;
+        overflow: hidden;
         width: 44px;
+      }
+
+      .brand-mark img {
+        display: block;
+        height: 100%;
+        width: 100%;
       }
 
       .brand-text {
@@ -302,7 +306,9 @@
   <body>
     <div class="page">
       <header class="topbar">
-        <div class="brand-mark" aria-hidden="true">E</div>
+        <div class="brand-mark" aria-hidden="true">
+          <img src="icons/icon.svg" alt="" width="44" height="44">
+        </div>
         <div class="brand-text">
           <strong>EdTech Hub</strong>
           <span>Học mọi lúc · Offline · Miễn phí</span>
