@@ -88,19 +88,24 @@
       <h1>EdTech Hub</h1>
       <p class="lead">Chọn môn học để bắt đầu. Các ứng dụng hoạt động offline (PWA) và lưu tiến độ theo từng người học trên thiết bị.</p>
       <div class="grid" id="appGrid"></div>
-      <p class="note">Chạy local: mở từ thư mục gốc monorepo (<code>python3 -m http.server</code>) để liên kết tương đối hoạt động giữa các dự án.</p>
+      <p class="note">Trang hub: <a href="https://navuitag.github.io/edtech/">navuitag.github.io/edtech</a> · Mỗi môn học là PWA riêng trên GitHub Pages.</p>
     </div>
     <script>
+      const BASE_URL = "https://navuitag.github.io";
+
       const APPS = [
-        { emoji: "📐", short: "Toán", name: "MathFlow VN", href: "./mathflow/index.html#/home" },
-        { emoji: "🧬", short: "Sinh học", name: "BioFlow VN", href: "./bioflow/index.html#/home" },
-        { emoji: "⚗️", short: "Hóa học", name: "ChemFlow VN", href: "./chemflow/index.html#/home" },
-        { emoji: "⚡", short: "Vật lí", name: "PhyFlow VN", href: "./phyflow/index.html#/home" },
-        { emoji: "📖", short: "Ngữ văn", name: "LiteratureFlow VN", href: "./literatureflow/index.html#/home" },
-        { emoji: "💻", short: "Tin học", name: "ITflow VN", href: "./ITflow/index.html#/home" },
-        { emoji: "🇬🇧", short: "Tiếng Anh", name: "EnglishFlow", href: "./englishflow/index.html#/home" },
-        { emoji: "🗣️", short: "Anh 60 ngày", name: "EngCoach", href: "./engcoach/index.html#/dashboard" }
-      ];
+        { emoji: "📐", short: "Toán", name: "MathFlow VN", repo: "MathFlow", start: "#/home" },
+        { emoji: "🧬", short: "Sinh học", name: "BioFlow VN", repo: "bioflow", start: "#/home" },
+        { emoji: "⚗️", short: "Hóa học", name: "ChemFlow VN", repo: "chemflow", start: "#/home" },
+        { emoji: "⚡", short: "Vật lí", name: "PhyFlow VN", repo: "phyflow", start: "#/home" },
+        { emoji: "📖", short: "Ngữ văn", name: "LiteratureFlow VN", repo: "literatureflow", start: "#/home" },
+        { emoji: "💻", short: "Tin học", name: "ITflow VN", repo: "ITflow", start: "#/home" },
+        { emoji: "🇬🇧", short: "Tiếng Anh", name: "EnglishFlow", repo: "englishflow", start: "#/home" },
+        { emoji: "🗣️", short: "Anh 60 ngày", name: "EngCoach", repo: "engcoach", start: "#/dashboard" }
+      ].map((app) => ({
+        ...app,
+        href: `${BASE_URL}/${app.repo}/index.html${app.start}`
+      }));
 
       document.getElementById("appGrid").innerHTML = APPS.map((app) => `
         <a class="card" href="${app.href}">
