@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Trung tâm học tập EdTech — Toán, Sinh, Hóa, Lý, Văn, Tin, Anh">
+    <meta name="theme-color" content="#20a36b">
+    <title>EdTech Hub — Chọn môn học</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7fbff;
+        --text: #193f65;
+        --muted: #5f7d98;
+        --line: #d8e6f2;
+        --green: #20a36b;
+        --surface: #fff;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        background: radial-gradient(circle at top right, rgba(32, 163, 107, 0.12), transparent 32%), var(--bg);
+        color: var(--text);
+        font-family: "Segoe UI", system-ui, sans-serif;
+        margin: 0;
+        min-height: 100vh;
+      }
+
+      .wrap {
+        margin: 0 auto;
+        max-width: 1080px;
+        padding: 48px 20px 64px;
+      }
+
+      h1 {
+        font-size: clamp(28px, 4vw, 40px);
+        margin: 0 0 10px;
+      }
+
+      .lead {
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 0 0 32px;
+        max-width: 640px;
+      }
+
+      .grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        box-shadow: 0 8px 24px rgba(25, 63, 101, 0.08);
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        min-height: 150px;
+        padding: 22px;
+        text-decoration: none;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      .card:hover {
+        box-shadow: 0 14px 32px rgba(25, 63, 101, 0.12);
+        transform: translateY(-2px);
+      }
+
+      .emoji { font-size: 30px; line-height: 1; }
+      .card strong { font-size: 18px; }
+      .card span { color: var(--muted); font-size: 14px; font-weight: 600; }
+
+      .note {
+        color: var(--muted);
+        font-size: 14px;
+        margin-top: 28px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>EdTech Hub</h1>
+      <p class="lead">Chọn môn học để bắt đầu. Các ứng dụng hoạt động offline (PWA) và lưu tiến độ theo từng người học trên thiết bị.</p>
+      <div class="grid" id="appGrid"></div>
+      <p class="note">Chạy local: mở từ thư mục gốc monorepo (<code>python3 -m http.server</code>) để liên kết tương đối hoạt động giữa các dự án.</p>
+    </div>
+    <script>
+      const APPS = [
+        { emoji: "📐", short: "Toán", name: "MathFlow VN", href: "./mathflow/index.html#/home" },
+        { emoji: "🧬", short: "Sinh học", name: "BioFlow VN", href: "./bioflow/index.html#/home" },
+        { emoji: "⚗️", short: "Hóa học", name: "ChemFlow VN", href: "./chemflow/index.html#/home" },
+        { emoji: "⚡", short: "Vật lí", name: "PhyFlow VN", href: "./phyflow/index.html#/home" },
+        { emoji: "📖", short: "Ngữ văn", name: "LiteratureFlow VN", href: "./literatureflow/index.html#/home" },
+        { emoji: "💻", short: "Tin học", name: "ITflow VN", href: "./ITflow/index.html#/home" },
+        { emoji: "🇬🇧", short: "Tiếng Anh", name: "EnglishFlow", href: "./englishflow/index.html#/home" },
+        { emoji: "🗣️", short: "Anh 60 ngày", name: "EngCoach", href: "./engcoach/index.html#/dashboard" }
+      ];
+
+      document.getElementById("appGrid").innerHTML = APPS.map((app) => `
+        <a class="card" href="${app.href}">
+          <span class="emoji" aria-hidden="true">${app.emoji}</span>
+          <strong>${app.short}</strong>
+          <span>${app.name}</span>
+        </a>
+      `).join("");
+    </script>
+  </body>
+</html>
