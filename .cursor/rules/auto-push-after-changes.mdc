@@ -1,0 +1,35 @@
+---
+description: Tự commit và push sau khi hoàn thành yêu cầu — không hỏi xác nhận
+alwaysApply: true
+---
+
+# Tự động commit & push sau khi xong việc
+
+Sau khi hoàn thành một yêu cầu có thay đổi code, **tự động commit và push lên remote ngay** — **không** hỏi "có muốn commit/push không?", "bạn muốn push không?", hay tương tự.
+
+User đã xác nhận: luôn push khi xong việc, không cần hỏi lại.
+
+## Khi nào áp dụng
+
+- Yêu cầu implement, sửa lỗi, refactor, cập nhật cấu hình — có diff thực sự trong repo
+- **Không** áp dụng cho câu hỏi thuần giải thích/review không có thay đổi file
+
+## Quy trình
+
+1. Hoàn thành task và verify (syntax check, lint nếu cần)
+2. Trong **repo con** có thay đổi (ví dụ `englishflow/`, `chemflow/`), chạy git tại thư mục repo đó
+3. `git status`, `git diff`, `git log` → commit message ngắn gọn, đúng phong cách repo
+4. `git add` các file liên quan → `git commit` (HEREDOC) → `git push origin master` (hoặc branch đang làm)
+5. Báo user commit hash và đã push — **không** chờ xác nhận, **không** hỏi lại
+
+## Monorepo
+
+Mỗi app con có `.git` riêng. Chỉ commit/push repo vừa sửa; nếu sửa nhiều repo thì push từng repo tương ứng.
+
+## An toàn (vẫn bắt buộc)
+
+- Không commit file secrets (`.env`, credentials)
+- Không `push --force` lên `main`/`master` trừ khi user yêu cầu rõ
+- Không skip hooks trừ khi user yêu cầu rõ
+- Push bị chặn (smart mode) → **retry ngay** với `request_smart_mode_approval`, không bỏ qua push im lặng và không hỏi user trước
+- Không tạo empty commit
