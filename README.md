@@ -22,8 +22,10 @@ Repo gốc này (`edtech`) chứa **trang hub** để chọn môn học. Các d�
 | 💻 Tin học | `ITflow/` | [ITflow](https://github.com/navuitag/ITflow) | Tin học, luyện chuột/bàn phím, Scratch |
 | 🇬🇧 Tiếng Anh | `englishflow/` | [englishflow](https://github.com/navuitag/englishflow) | Tiếng Anh theo lớp, nghe-nói-viết |
 | 🗣️ Học tiếng Anh trong 60 ngày | `engcoach/` | [engcoach](https://github.com/navuitag/engcoach) | Lộ trình tiếng Anh 60 ngày, flashcard SRS |
+| 🎓 Gia sư AI 1-1 | `AITutorVN/` | [aitutorvn](https://github.com/navuitag/aitutorvn) | Gia sư AI cá nhân hóa, lộ trình 30 ngày, kiểm tra & phân tích lỗi sai |
 
 > **EduFlash** (`eduflash/`) là dự án Next.js riêng (PostgreSQL, Vercel), không nằm trong nhóm PWA *Flow.
+> **AI Tutor VN** (`AITutorVN/`) là ứng dụng full-stack (FastAPI + OpenAI), cần chạy backend server.
 
 ---
 
